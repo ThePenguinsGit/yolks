@@ -20,11 +20,11 @@ jobs:
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
 
-      - name: 'Build Docker Image'
+      - name: 'Build Java 22 Image'
         run: |
           docker build ./java22 --tag ghcr.io/thepenguinsgit/java_22:latest
           docker push ghcr.io/thepenguinsgit/java_22:latest
-      - name: 'Build Docker Image'
+      - name: 'Build FTB Installer Image'
         run: |
           docker build ./FTB-Installer --tag ghcr.io/thepenguinsgit/ftb_installer:latest
           docker push ghcr.io/thepenguinsgit/ftb_installer:latest
