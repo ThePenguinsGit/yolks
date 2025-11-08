@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  push-java22-image:
+  build-images:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout GitHub Action'
@@ -22,5 +22,9 @@ jobs:
 
       - name: 'Build Docker Image'
         run: |
-          docker build . --tag ghcr.io/thepenguinsgit/java_22:latest
+          docker build ./java22 --tag ghcr.io/thepenguinsgit/java_22:latest
           docker push ghcr.io/thepenguinsgit/java_22:latest
+      - name: 'Build Docker Image'
+        run: |
+          docker build ./FTB-Installer --tag ghcr.io/thepenguinsgit/ftb_installer:latest
+          docker push ghcr.io/thepenguinsgit/ftb_installer:latest
